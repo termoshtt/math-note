@@ -1,0 +1,8 @@
+[book]
+authors = ["Toshiki Teramura"]
+multilingual = false
+src = "src"
+title = "math-note"
+
+[output.html]
+mathjax-support = true
