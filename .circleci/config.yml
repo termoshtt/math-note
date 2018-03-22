@@ -7,17 +7,17 @@ jobs:
     steps:
       - checkout
       - run:
-        name: Build HTML
-        command: |
-          mdbook build
+          name: Build HTML
+          command: |
+            mdbook build
 
   deploy-job:
     docker:
       - image: termoshtt/mdbook
     steps:
       - run:
-        name: Deploy to S3
-        command: aws s3 sync book/ s3://math-note/ --delete
+          name: Deploy to S3
+          command: aws s3 sync book/ s3://math-note/ --delete
 
 workflows:
   version: 2
