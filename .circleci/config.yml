@@ -9,16 +9,16 @@ jobs:
       - run:
           name: Build HTML
           command: |
+            pwd
             mdbook build
 
   deploy:
     docker:
       - image: termoshtt/mdbook
-    working_directory: /tmp/math-note
     steps:
       - run:
           name: Deploy to S3
-          command: aws s3 sync book/ s3://math-note/ --delete
+          command: aws s3 sync mdbook/book/ s3://math-note/ --delete
 
 workflows:
   version: 2
