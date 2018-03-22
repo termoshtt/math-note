@@ -9,8 +9,10 @@ jobs:
       - run:
           name: Build HTML
           command: |
-            pwd
             mdbook build
+      - persistent_to_workspace:
+        paths:
+          - book
 
   deploy:
     docker:
@@ -18,7 +20,7 @@ jobs:
     steps:
       - run:
           name: Deploy to S3
-          command: aws s3 sync mdbook/book/ s3://math-note/ --delete
+          command: aws s3 sync book/ s3://math-note/ --delete
 
 workflows:
   version: 2
