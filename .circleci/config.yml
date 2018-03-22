@@ -15,6 +15,7 @@ jobs:
     docker:
       - image: termoshtt/mdbook
     steps:
+      - checkout
       - run:
           name: Deploy to S3
           command: |
