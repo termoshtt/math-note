@@ -14,6 +14,7 @@ jobs:
   deploy:
     docker:
       - image: termoshtt/mdbook
+    working_directory: /tmp/math-note
     steps:
       - run:
           name: Deploy to S3
