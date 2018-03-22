@@ -1,17 +1,19 @@
 version: 2
 
-image: termoshtt/mdbook
-
 jobs:
   build-job:
+    docker:
+      - image: termoshtt/mdbook
     steps:
       - checkout
       - run:
-          name: Build HTML
-          command: |
-            mdbook build
+        name: Build HTML
+        command: |
+          mdbook build
 
   deploy-job:
+    docker:
+      - image: termoshtt/mdbook
     steps:
       - run:
         name: Deploy to S3
