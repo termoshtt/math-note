@@ -11,8 +11,8 @@ jobs:
           command: |
             mdbook build
       - persistent_to_workspace:
-        paths:
-          - book
+          paths:
+            - book
 
   deploy:
     docker:
